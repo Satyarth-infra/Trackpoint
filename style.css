@@ -1,0 +1,44 @@
+@keyframes slowPulse {
+  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+  70% { box-shadow: 0 0 0 15px rgba(37, 99, 235, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
+}
+
+.billion-dollar-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: white; /* Light mode default */
+  color: black;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.billion-dollar-button:hover {
+  background: #2563eb; /* Corporate Blue */
+  color: white;
+  transform: translateY(-3px);
+  border-color: #3b82f6;
+  /* Multi-layered glow */
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.6), 
+              0 0 40px rgba(37, 99, 235, 0.4), 
+              0 0 60px rgba(37, 99, 235, 0.2);
+  animation: slowPulse 2s infinite;
+}
+
+/* The "Shine" sweep effect */
+.billion-dollar-button::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(30deg);
+  transition: all 0.6s ease;
+}
+
+.billion-dollar-button:hover::after {
+  left: 120%;
+}
